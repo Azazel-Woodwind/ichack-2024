@@ -4,7 +4,6 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import styled from "styled-components";
 import "./index.css";
-import answers from "./data.js";
 const m = answers.reduce((a, curr) => a + curr.marks, 0);
 console.log(m);
 
@@ -109,8 +108,7 @@ const DotPattern = styled.div`
     background-size: 10px 40px;
 `;
 
-function App() {
-    const [questions, setQuestions] = useState(null);
+function App({ questions }) {
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const questionsParam = params.get("questions");
